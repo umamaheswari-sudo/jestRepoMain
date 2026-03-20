@@ -4,14 +4,19 @@ module.exports = {
     verbose: true,
     testTimeout: 30000,
     reporters: [
-        'default',
+        "default",
         [
-            'jest-html-reporter',
+            "jest-html-reporter",
             {
-                pageTitle: 'API Test Report',
-                outputPath: 'reports/test-report.html',   // removed ./ (safer in docker)
-                includeFailureMsg: true,
-                includeConsoleLog: true
+                outputPath: "reports/test-report.html"
+            }
+        ],
+        [
+            "jest-junit",
+            {
+                outputDirectory: "reports",
+                outputName: "jest-report.xml",
+                addFileAttribute: "true"
             }
         ]
     ]
