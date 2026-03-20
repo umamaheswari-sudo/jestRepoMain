@@ -5,10 +5,14 @@ module.exports = {
     testTimeout: 30000,
     reporters: [
         'default',
-        ['jest-html-reporter', {
-            pageTitle: 'API Test Report',
-            outputPath: './reports/test-report.html',
-            includeFailureMsg: true
-        }]
+        [
+            'jest-html-reporter',
+            {
+                pageTitle: 'API Test Report',
+                outputPath: 'reports/test-report.html',   // removed ./ (safer in docker)
+                includeFailureMsg: true,
+                includeConsoleLog: true
+            }
+        ]
     ]
 };
